@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, Helvatica, sans-serif;
+    background-color: #fafaf8;
+}
+
+/* ################## HEADER ################## */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    gap: 11px;
+    height: 80px;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1),
+                0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+}
+header > img {
+    width: 2.3rem;
+}
+header > h1 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 0;
+    color: #333333;
+}
+
+/* ################## MAIN FORM ################## */
+main {
+    padding: 20px 30px;
+}
+.ingredient-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+.ingredient-form > input {
+    border-radius: 7px;
+    border: 1px solid #d1d5d8;
+    padding: 10px 13px;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+    max-width: 500px;
+    min-width: 150px;
+}
+.ingredient-form > input:focus {
+    outline: 2px solid gray;
+}
+
+.ingredient-form > button::before {
+    content: "+";
+    margin-right: 5px
+}
+.ingredient-form > button {
+    font-family: Inter, sans-serif;
+    border-radius: 7px;
+    border: none;
+    padding: 10px 13px;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    background-color: #141413;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 140px;
+}
+.ingredient-form > button:hover {
+    background-color: #fff;
+    color: #141413;
+}
+.ingredient-form > button:active {
+    transform: scale(0.98);
+}
+@media(max-width: 500px) {
+    .ingredient-form > button {
+        width: 100%;
+    }
+}
