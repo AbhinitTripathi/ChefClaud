@@ -20,17 +20,19 @@ export default function Main() {
                 />
                 <button type="submit">Add Ingredient</button>
             </form>
-            <section>
-                <h2>Ingredients on hand:</h2>
-                <ul className="ingredients-list" aria-live="polite">{ingredients}</ul>
-                <div className="get-recipie-container">
-                    <div>
-                        <h3>Ready for a recipie?</h3>
-                        <p>Generate a recipie from your list of ingredients</p>
+            {ingredients.length > 0 && (
+                <section>
+                    <h2>Ingredients on hand:</h2>
+                    <ul className="ingredients-list" aria-live="polite">{ingredients}</ul>
+                    <div className="get-recipie-container">
+                        <div>
+                            <h3>Ready for a recipie?</h3>
+                            <p>Generate a recipie from your list of ingredients</p>
+                        </div>
+                        <button>Get Recipie</button>
                     </div>
-                    <button>Get Recipie</button>
-                </div>
-            </section>
+                </section>
+            )}
         </main>
     )
 }
