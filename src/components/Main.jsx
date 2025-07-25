@@ -6,12 +6,6 @@ export default function Main() {
     const [ingredients, setIngredients] = useState(["Salt", "Pepper", "Basil", "Oregano"]);
     const [recipieShown, setRecipieShown] = useState(false);
 
-    // Remove this later
-    const ingredientsListTest = ingredients.map((ingredient, index) => {
-        return <li key={index}>{ingredient}</li>;
-    })
-    // Remove this later
-
     function handleSubmit(form) {
         const input = form.get("ingredient");
         setIngredients((prev) => [...prev, input]);
@@ -38,7 +32,6 @@ export default function Main() {
                 <IngredientsList 
                     handleGetRecipie={handleGetRecipie}
                     ingredients={ingredients}
-                    ingredientsListTest={ingredientsListTest}
                 />
             ): null}
 

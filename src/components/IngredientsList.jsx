@@ -1,10 +1,15 @@
 export default function IngredientsList(props) {
+    // Remove this later
+    const ingredientsListTest = props.ingredients.map((ingredient, index) => {
+        return <li key={index}>{ingredient}</li>;
+    })
+    // Remove this later
     return (
         <section>
             <h2>Ingredients on hand:</h2>
             <ul className="ingredients-list" aria-live="polite">
                 {/* Replace with props.ingredients later */}
-                {props.ingredientsListTest}
+                {ingredientsListTest}
             </ul>
             {props.ingredients.length >= 3 ? (
                 <div className="get-recipie-container">
