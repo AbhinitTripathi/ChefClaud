@@ -20,8 +20,8 @@ export default function IngredientsList(props) {
                             ingredients
                         </p>
                     </div>
-                    <button onClick={props.handleGetRecipie}>
-                        Get Recipie
+                    <button onClick={props.handleGetRecipie} disabled={props.loading}>
+                        {props.loading ? 'Generating...' : 'Get Recipe'}
                     </button>
                 </div>
             ) : (
