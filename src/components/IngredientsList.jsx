@@ -3,7 +3,7 @@ export default function IngredientsList(props) {
         <section>
             <h2>Ingredients on hand:</h2>
             <ul className="ingredients-list" aria-live="polite">
-                {/* Remove this later */}
+                {/* Replace with props.ingredients later */}
                 {props.ingredientsListTest}
             </ul>
             {props.ingredients.length >= 3 ? (

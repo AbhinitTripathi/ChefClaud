@@ -3,7 +3,7 @@ import RecipieSection from "./RecipieSection.jsx"
 import IngredientsList from "./IngredientsList.jsx";
 
 export default function Main() {
-    const [ingredients, setIngredients] = useState(["Oregane", "Basil", "Salt", "Pepper"]);
+    const [ingredients, setIngredients] = useState(["Salt", "Pepper", "Basil", "Oregano"]);
     const [recipieShown, setRecipieShown] = useState(false);
 
     // Remove this later
@@ -14,7 +14,7 @@ export default function Main() {
 
     function handleSubmit(form) {
         const input = form.get("ingredient");
-        setIngredients((prev) => [...prev, <li>{input}</li>]);
+        setIngredients((prev) => [...prev, input]);
     }
 
     function handleGetRecipie() {
