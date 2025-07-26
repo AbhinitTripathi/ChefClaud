@@ -1,35 +1,23 @@
-export default function IngredientsList(props) {
-    // Remove this later
-    const ingredientsListTest = props.ingredients.map((ingredient, index) => {
-        return <li key={index}>{ingredient}</li>;
-    })
-    // Remove this later
+export default function IngredientsList({ ingredients, handleGetRecipie }) {
+    const ingredientsListItems = ingredients.map((ingredient, index) => (
+        <li key={index}>{ingredient}</li>
+    ));
+
     return (
         <section>
             <h2>Ingredients on hand:</h2>
             <ul className="ingredients-list" aria-live="polite">
-                {/* Replace with props.ingredients later */}
-                {ingredientsListTest}
+                {ingredientsListItems}
             </ul>
-            {props.ingredients.length >= 3 ? (
+            {ingredients.length > 3 && (
                 <div className="get-recipie-container">
                     <div>
-                        <h3>Ready for a recipie?</h3>
-                        <p>
-                            Generate a recipie from your list of
-                            ingredients
-                        </p>
+                        <h3>Ready for a recipe?</h3>
+                        <p>Generate a recipe from your list of ingredients.</p>
                     </div>
-                    <button onClick={props.handleGetRecipie} disabled={props.loading}>
-                        {props.loading ? 'Generating...' : 'Get Recipe'}
-                    </button>
+                    <button onClick={handleGetRecipie}>Get a recipe</button>
                 </div>
-            ) : (
-                <p>
-                    Chef needs at least 3 ingredients to create a
-                    recipie
-                </p>
             )}
         </section>
-    )
+    );
 }
