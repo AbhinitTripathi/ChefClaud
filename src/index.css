@@ -103,7 +103,19 @@ main {
     color: #fff;
     cursor: pointer;
     transition: all 0.2s ease;
+    width: 150px;
 }
 .get-recipie-container > button:hover {
     background-color: #b55d44;
+}
+
+.suggested-recipe-container {
+    color: #475467;
+    line-height: 28px;
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+
+.suggested-recipe-container ul li, .suggested-recipe-container ol li {
+    margin-bottom: 8px;
 }

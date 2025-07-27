@@ -1,11 +1,9 @@
-
-export default function RecipieSection() {
+import Markdown from "react-markdown";
+export default function RecipieSection(props) {
+    const markdown = props.recipe;
     return (
-        <section>
-            <h2>Chef Recommends:</h2>
-            <article className="suggested-recipe-container" aria-live="polite">
-                <p>Recipe will appear here when you implement the AI integration!</p>
-            </article>
+        <section className='suggested-recipe-container'>
+            <Markdown>{markdown}</Markdown>
         </section>
     );
 }

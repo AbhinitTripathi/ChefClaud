@@ -1,20 +1,21 @@
 import { useState } from "react";
-import RecipieSection from "./RecipieSection.jsx"
+import RecipieSection from "./RecipieSection.jsx";
 import IngredientsList from "./IngredientsList.jsx";
-import { getRecipeFromAI } from "./ai.js"
+import { getRecipeFromAI } from "./ai.js";
 
 export default function Main() {
-    const [ingredients, setIngredients] = useState(["Salt", "Pepper", "Basil", "Oregano"]);
-    const [recipieShown, setRecipieShown] = useState(false);
+    const [ingredients, setIngredients] = useState([]);
+    const [recipe, setRecipe] = useState("");
 
     function handleSubmit(form) {
         const input = form.get("ingredient");
         setIngredients((prev) => [...prev, input]);
     }
 
-    async function handleGetRecipie() {
+    async function getRecipe() {
+        console.log("Generating...")
         const recipeMarkdown = await getRecipeFromAI(ingredients);
-        console.log(recipeMarkdown);
+        setRecipe(recipeMarkdown);
     }
 
     return (
@@ -30,14 +31,14 @@ export default function Main() {
                 <button type="submit">Add Ingredient</button>
             </form>
 
-            {ingredients.length > 0 ?(
-                <IngredientsList 
-                    handleGetRecipie={handleGetRecipie}
+            {ingredients.length > 0 ? (
+                <IngredientsList
+                    getRecipe={getRecipe}
                     ingredients={ingredients}
                 />
-            ): null}
+            ) : null}
 
-            {recipieShown ? <RecipieSection /> : null}
+            {recipe.length > 0 ? <RecipieSection recipe={recipe} /> : null}
         </main>
     );
 }
