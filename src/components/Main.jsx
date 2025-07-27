@@ -13,8 +13,8 @@ export default function Main() {
     }
 
     async function handleGetRecipie() {
-        const recipeMatkdown = await getRecipeFromAI(ingredients)
-        console.log(recipeMatkdown);
+        const recipeMarkdown = await getRecipeFromAI(ingredients);
+        console.log(recipeMarkdown);
     }
 
     return (
