@@ -1,0 +1,18 @@
+[vite] connecting...
+[vite] connected.
+undefined
+Defaulting to 'auto' which will select the first provider available for the model, sorted by the user's order in https://hf.co/settings/inference-providers.
+Auto selected provider: featherless-ai
+Error calling Hugging Face API: 
+TypeError {}
+message: "accessToken.startsWith is not a function"
+stack: "TypeError: accessToken.startsWith is not a function↵ at https://837f603c-c17c-4eae-b230-ce6a756a56dc-00-1udf2llngrp07.sisko.replit.dev:3000/node_modules/.vite/deps/@huggingface_inference.js?v=507e1ac9:1883:26↵ at makeRequestOptionsFromResolvedModel (https://837f603c-c17c-4eae-b230-ce6a756a56dc-00-1udf2llngrp07.sisko.replit.dev:3000/node_modules/.vite/deps/@huggingface_inference.js?v=507e1ac9:1889:5)↵ at makeRequestOptions (https://837f603c-c17c-4eae-b230-ce6a756a56dc-00-1udf2llngrp07.sisko.replit.dev:3000/node_modules/.vite/deps/@huggingface_inference.js?v=507e1ac9:1870:10)↵ at async innerRequest (https://837f603c-c17c-4eae-b230-ce6a756a56dc-00-1udf2llngrp07.sisko.replit.dev:3000/node_modules/.vite/deps/@huggingface_inference.js?v=507e1ac9:2071:25)↵ at async chatCompletion (https://837f603c-c17c-4eae-b230-ce6a756a56dc-00-1udf2llngrp07.sisko.replit.dev:3000/node_modules/.vite/deps/@huggingface_inference.js?v=507e1ac9:2437:30)↵ at async getRecipeFromAI (https://837f603c-c17c-4eae-b230-ce6a756a56dc-00-1udf2llngrp07.sisko.replit.dev:3000/src/components/ai.js:17:22)↵ at async handleGetRecipie (https://837f603c-c17c-4eae-b230-ce6a756a56dc-00-1udf2llngrp07.sisko.replit.dev:3000/src/components/Main.jsx:31:28)"
+get stack: ƒ ()
+set stack: ƒ ()
+[[Prototype]]: Object
+
+at t.value (https://837f603c-c17c-4eae-b230-ce6a756a56dc-00-1udf2llngrp07.sisko.replit.dev:3000/__replco/static/devtools/eruda/3.2.3/eruda.js:2:17465)
+at new t (https://837f603c-c17c-4eae-b230-ce6a756a56dc-00-1udf2llngrp07.sisko.replit.dev:3000/__replco/static/devtools/eruda/3.2.3/eruda.js:2:12630)
+at t.value (https://837f603c-c17c-4eae-b230-ce6a756a56dc-00-1udf2llngrp07.sisko.replit.dev:3000/__replco/static/devtools/eruda/3.2.3/eruda.js:2:32766)
+at https://837f603c-c17c-4eae-b230-ce6a756a56dc-00-1udf2llngrp07.sisko.replit.dev:3000/__replco/static/devtools/eruda/3.2.3/eruda.js:2:34400
+Sorry, something went wrong while generating the recipe.
