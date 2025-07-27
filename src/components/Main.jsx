@@ -1,6 +1,7 @@
 import { useState } from "react";
 import RecipieSection from "./RecipieSection.jsx"
 import IngredientsList from "./IngredientsList.jsx";
+import { getRecipeFromAI } from "./ai.js"
 
 export default function Main() {
     const [ingredients, setIngredients] = useState(["Salt", "Pepper", "Basil", "Oregano"]);
@@ -11,8 +12,9 @@ export default function Main() {
         setIngredients((prev) => [...prev, input]);
     }
 
-    function handleGetRecipie() {
-        setRecipieShown(prevState => !prevState);
+    async function handleGetRecipie() {
+        const recipeMatkdown = await getRecipeFromAI(ingredients)
+        console.log(recipeMatkdown);
     }
 
     return (
