@@ -1,14 +1,30 @@
-import { PROVIDERS_OR_POLICIES } from '@huggingface/inference';
-import { useState, useEffect } from 'react';
+import { PROVIDERS_OR_POLICIES } from "@huggingface/inference";
+import { useState, useEffect } from "react";
+import closeIcon from "../assets/close.png";
 
-export default function RecipeSection({ ref, ingredients, getRecipe }) {
+export default function RecipeSection({
+    ref,
+    ingredients,
+    getRecipe,
+    handleRemove,
+}) {
     const [isGenerating, setIsGenerating] = useState(false);
-    const [dots, setDots] = useState('C');
+    const [dots, setDots] = useState("C");
 
     useEffect(() => {
         if (!isGenerating) return;
 
-        const dotFrames = ['C', 'Co', 'Coo', 'Cook', 'Cooki', 'Cookin', 'Cooking', 'Cookingg', 'Cookinggg'];
+        const dotFrames = [
+            "C",
+            "Co",
+            "Coo",
+            "Cook",
+            "Cooki",
+            "Cookin",
+            "Cooking",
+            "Cookingg",
+            "Cookinggg",
+        ];
         let frame = 0;
 
         const interval = setInterval(() => {
@@ -16,13 +32,13 @@ export default function RecipeSection({ ref, ingredients, getRecipe }) {
             frame = (frame + 1) % dotFrames.length;
         }, 200); // every 500ms
 
-        setDots('C');
+        setDots("C");
         return () => clearInterval(interval); // cleanup when unmounting or generating stops
     }, [isGenerating]);
 
     const handleGenerate = async () => {
         setIsGenerating(true);
-        await getRecipe();  // assumes async
+        await getRecipe(); // assumes async
         setIsGenerating(false);
     };
 
@@ -31,7 +47,19 @@ export default function RecipeSection({ ref, ingredients, getRecipe }) {
             <h2>Ingredients on hand:</h2>
             <ul className="ingredients-list" aria-live="polite">
                 {ingredients.map((ingredient, index) => (
-                    <li key={index}>{ingredient}</li>
+                    <li key={index}>
+                        {ingredient}
+                        <button
+                            onClick={() => handleRemove(index)}
+                            aria-label="Remove ingredient"
+                        >
+                            <img
+                                src={closeIcon}
+                                alt="Remove Ingredient"
+                                width="15px"
+                            />
+                        </button>
+                    </li>
                 ))}
             </ul>
 
@@ -42,7 +70,7 @@ export default function RecipeSection({ ref, ingredients, getRecipe }) {
                         <p>Generate a recipe from your list of ingredients.</p>
                     </div>
                     <button onClick={handleGenerate} disabled={isGenerating}>
-                        {isGenerating ? dots : 'Get a recipe'}
+                        {isGenerating ? dots : "Get a recipe"}
                     </button>
                 </div>
             )}

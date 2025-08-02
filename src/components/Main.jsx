@@ -19,8 +19,11 @@ export default function Main() {
         setIngredients((prev) => [...prev, input]);
     }
 
+    function handleRemove(index) {
+        setIngredients(prev => prev.filter((_, i) => i !== index));
+    }
+
     async function getRecipe() {
-        console.log("Generating...")
         const recipeMarkdown = await getRecipeFromAI(ingredients);
         setRecipe(recipeMarkdown);
     }
@@ -43,6 +46,7 @@ export default function Main() {
                     ref={recipeSection}
                     getRecipe={getRecipe}
                     ingredients={ingredients}
+                    handleRemove={handleRemove}
                 />
             ) : null}
 

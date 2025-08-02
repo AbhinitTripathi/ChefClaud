@@ -82,6 +82,43 @@ main {
     }
 }
 
+/* ################## INGREDIENTS SECTION ################## */
+.ingredients-list {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin: 0;
+}
+
+.ingredients-list li {
+    position: relative;
+    margin-bottom: 10px;
+    padding: 0px 12px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    list-style-position: inside;
+}
+
+.ingredients-list button {
+    position: absolute;
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: scale 0.2s ease;
+}
+.ingredients-list button:hover {
+    scale: 1.5;
+}
+.ingredients-list button:focus {
+    scale: 1.5;
+}
+
+.ingredients-list img {
+    width: 15px;
+    height: 15px;
+}
+
 /* ################## RECIPIE SECTION ################## */
 .get-recipie-container {
     display: flex;
