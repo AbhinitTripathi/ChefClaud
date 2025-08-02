@@ -1,6 +1,7 @@
+import { PROVIDERS_OR_POLICIES } from '@huggingface/inference';
 import { useState, useEffect } from 'react';
 
-export default function RecipeSection({ ingredients, getRecipe }) {
+export default function RecipeSection({ ref, ingredients, getRecipe }) {
     const [isGenerating, setIsGenerating] = useState(false);
     const [dots, setDots] = useState('C');
 
@@ -36,7 +37,7 @@ export default function RecipeSection({ ingredients, getRecipe }) {
 
             {ingredients.length > 3 && (
                 <div className="get-recipie-container">
-                    <div>
+                    <div ref={ref}>
                         <h3>Ready for a recipe?</h3>
                         <p>Generate a recipe from your list of ingredients.</p>
                     </div>

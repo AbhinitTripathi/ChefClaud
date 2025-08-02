@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import RecipieSection from "./RecipieSection.jsx";
 import IngredientsList from "./IngredientsList.jsx";
 import { getRecipeFromAI } from "./ai.js";
@@ -6,6 +6,13 @@ import { getRecipeFromAI } from "./ai.js";
 export default function Main() {
     const [ingredients, setIngredients] = useState([]);
     const [recipe, setRecipe] = useState("");
+    const recipeSection = useRef(null);
+
+    useEffect(() => {
+        if(recipe !== "" && recipeSection.current !== null) {
+            recipeSection.current.scrollIntoView({ behavior:"smooth" });
+        }
+    }, [recipe, recipeSection])
 
     function handleSubmit(form) {
         const input = form.get("ingredient");
@@ -33,6 +40,7 @@ export default function Main() {
 
             {ingredients.length > 0 ? (
                 <IngredientsList
+                    ref={recipeSection}
                     getRecipe={getRecipe}
                     ingredients={ingredients}
                 />
